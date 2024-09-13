@@ -9,16 +9,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-dm-sans)']
+        serif: ['var(--font-dm-serif-display)'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
-        'primary': '#4FBBF3',
+        primary: '#4FBBF3',
+        secondary: '#0FAE18',
         'dark-primary': '#05090D',
-      }
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
-
+  plugins: [require('@tailwindcss/typography')],
+};

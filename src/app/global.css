@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-dm-serif-display);
+}
+
+body,
+p,
+span,
+li,
+a {
+    font-family: var(--font-inter);
+}
+
+html {
+    font-family: var(--font-inter);
+}
+
+
 .glass-container {
     position: relative;
 }
