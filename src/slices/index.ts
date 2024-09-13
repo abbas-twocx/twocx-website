@@ -6,6 +6,8 @@ export const components = {
   call_to_action: dynamic(() => import("./CallToAction")),
   hero: dynamic(() => import("./Hero")),
   masonry_cards: dynamic(() => import("./MasonryCards")),
+  process: dynamic(() => import("./Process")),
   rich_text: dynamic(() => import("./RichText")),
+  services: dynamic(() => import("./Services")),
   text_with_image: dynamic(() => import("./TextWithImage")),
 };

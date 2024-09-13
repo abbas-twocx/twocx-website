@@ -1,11 +1,10 @@
 import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import {
-  PrismicRichText,
-  SliceComponentProps,
-  JSXMapSerializer,
-} from "@prismicio/react";
+import { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
 import styles from "./index.module.css";
+import Bounded from "@/components/Bounded";
+import clsx from "clsx";
+import { PrismicRichText } from "@/components/PrismicRichText";
 
 const components: JSXMapSerializer = {
   hyperlink: ({ node, children }) => {
@@ -28,9 +27,23 @@ type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
  */
 const RichText = ({ slice }: RichTextProps): JSX.Element => {
   return (
-    <section className={styles.richtext}>
-      <PrismicRichText field={slice.primary.content} components={components} />
-    </section>
+    <Bounded
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+    >
+      <div
+        className={clsx(
+          slice?.variation === "richTextFull"
+            ? "w-full"
+            : "max-w-[620px] mx-auto"
+        )}
+      >
+        <PrismicRichText
+          field={slice.primary.content}
+          components={components}
+        />
+      </div>
+    </Bounded>
   );
 };
 
