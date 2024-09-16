@@ -98,7 +98,7 @@ const defaultComponents: JSXMapSerializer = {
   hyperlink: ({ children, node }) => (
     <PrismicNextLink
       field={node.data}
-      className="underline decoration-1 underline-offset-2 text-b18 mb-7 pl-4 last:mb-0 md:pl-6"
+      className="underline decoration-1 underline-offset-2 ease-in-out duration-300 hover:text-primary text-[18px] m-0"
     >
       {children}
     </PrismicNextLink>

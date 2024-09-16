@@ -121,6 +121,122 @@ export type CaseStudiesDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Footer → links*
+ */
+export interface FooterDocumentDataLinksItem {
+  /**
+   * link field in *Footer → links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * label field in *Footer → links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Footer → Address*
+ */
+export interface FooterDocumentDataAddressItem {
+  /**
+   * Address field in *Footer → Address*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address[].address
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * image field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * body field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<FooterDocumentDataLinksItem>>;
+
+  /**
+   * Address field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  address: prismic.GroupField<Simplify<FooterDocumentDataAddressItem>>;
+
+  /**
+   * Copyright Text field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.copyright_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copyright_text: prismic.RichTextField;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | CaseStudiesCarouselSlice
   | CaseStudiesSlice
@@ -407,6 +523,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | CaseStudiesDocument
+  | FooterDocument
   | PageDocument
   | ServicesDocument
   | SettingsDocument;
@@ -1282,6 +1399,10 @@ declare module "@prismicio/client" {
       CaseStudiesDocument,
       CaseStudiesDocumentData,
       CaseStudiesDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataLinksItem,
+      FooterDocumentDataAddressItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
