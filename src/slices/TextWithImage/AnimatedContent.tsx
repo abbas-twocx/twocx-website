@@ -30,7 +30,7 @@ export default function AnimatedContent({
             duration: 1,
             scrollTrigger: {
               trigger: container.current,
-              start: "top bottom-=40%",
+              start: "top bottom-=20%",
               toggleActions: "play pause resume reverse",
             },
           },

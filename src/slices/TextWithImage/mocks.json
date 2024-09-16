@@ -96,7 +96,7 @@
 			},
 			"icon": {
 				"__TYPE__": "FieldContent",
-				"value": "gear",
+				"value": "cycle",
 				"type": "Select"
 			},
 			"title": {

@@ -53,15 +53,15 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
               {icons[slice?.primary?.icon]}
             </div>
           )}
-          <div className="mt-6 text-2xl font-normal">
+          <div className="mt-6 text-2xl text-balance font-normal">
             <PrismicRichText field={slice.primary.title} />
           </div>
           <div className="prose prose-invert mt-4 max-w-xl">
             <PrismicRichText field={slice.primary.body} />
           </div>
-          <ButtonLink className="mt-6" field={slice.primary.button_link}>
+          {isFilled.link(slice.primary.button_link)&&<ButtonLink className="mt-6" field={slice.primary.button_link}>
             {slice.primary.button_text || "Learn More"}
-          </ButtonLink>
+          </ButtonLink>}
         </div>
         <div
           className={clsx(

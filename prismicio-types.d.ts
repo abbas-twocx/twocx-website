@@ -4,7 +4,125 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type CaseStudiesDocumentDataSlicesSlice =
+  | SingleReviewSlice
+  | CaseStudiesSlice
+  | MasonryCardsSlice
+  | TextWithImageSlice
+  | HeroSlice
+  | RichTextSlice
+  | CallToActionSlice;
+
+/**
+ * Content for Case Studies documents
+ */
+interface CaseStudiesDocumentData {
+  /**
+   * Heading field in *Case Studies*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *Case Studies*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *Case Studies*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * bannner field in *Case Studies*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.bannner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bannner: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Case Studies*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CaseStudiesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Case Studies*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: case_studies.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Case Studies*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: case_studies.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Case Studies*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Case Studies document from Prismic
+ *
+ * - **API ID**: `case_studies`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CaseStudiesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CaseStudiesDocumentData>,
+    "case_studies",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
+  | CaseStudiesSlice
+  | ProcessSlice
   | ServicesSlice
   | CallToActionSlice
   | TextWithImageSlice
@@ -286,6 +404,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | CaseStudiesDocument
   | PageDocument
   | ServicesDocument
   | SettingsDocument;
@@ -363,6 +482,61 @@ type CallToActionSliceVariation = CallToActionSliceDefault;
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
+>;
+
+/**
+ * Primary content in *CaseStudies → Default → Primary*
+ */
+export interface CaseStudiesSliceDefaultPrimary {
+  /**
+   * Heading field in *CaseStudies → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *CaseStudies → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for CaseStudies Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CaseStudiesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CaseStudiesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CaseStudies*
+ */
+type CaseStudiesSliceVariation = CaseStudiesSliceDefault;
+
+/**
+ * CaseStudies Shared Slice
+ *
+ * - **API ID**: `case_studies`
+ * - **Description**: CaseStudies
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CaseStudiesSlice = prismic.SharedSlice<
+  "case_studies",
+  CaseStudiesSliceVariation
 >;
 
 /**
@@ -769,6 +943,81 @@ export type ServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SingleReview → Default → Primary*
+ */
+export interface SingleReviewSliceDefaultPrimary {
+  /**
+   * image field in *SingleReview → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_review.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *SingleReview → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_review.default.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Designation field in *SingleReview → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_review.default.primary.designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * Review field in *SingleReview → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_review.default.primary.review
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  review: prismic.RichTextField;
+}
+
+/**
+ * Default variation for SingleReview Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleReviewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SingleReviewSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SingleReview*
+ */
+type SingleReviewSliceVariation = SingleReviewSliceDefault;
+
+/**
+ * SingleReview Shared Slice
+ *
+ * - **API ID**: `single_review`
+ * - **Description**: SingleReview
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleReviewSlice = prismic.SharedSlice<
+  "single_review",
+  SingleReviewSliceVariation
+>;
+
+/**
  * Primary content in *TextWithImage → Default → Primary*
  */
 export interface TextWithImageSliceDefaultPrimary {
@@ -787,11 +1036,10 @@ export interface TextWithImageSliceDefaultPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: gear
    * - **API ID Path**: text_with_image.default.primary.icon
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  icon: prismic.SelectField<"gear" | "cycle", "filled">;
+  icon: prismic.SelectField<"gear" | "cycle">;
 
   /**
    * Title field in *TextWithImage → Default → Primary*
@@ -876,11 +1124,10 @@ export interface TextWithImageSliceReversePrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: gear
    * - **API ID Path**: text_with_image.reverse.primary.icon
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  icon: prismic.SelectField<"gear" | "cycle", "filled">;
+  icon: prismic.SelectField<"gear" | "cycle">;
 
   /**
    * Title field in *TextWithImage → Reverse → Primary*
@@ -975,6 +1222,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CaseStudiesDocument,
+      CaseStudiesDocumentData,
+      CaseStudiesDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -989,6 +1239,10 @@ declare module "@prismicio/client" {
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
+      CaseStudiesSlice,
+      CaseStudiesSliceDefaultPrimary,
+      CaseStudiesSliceVariation,
+      CaseStudiesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -1013,6 +1267,10 @@ declare module "@prismicio/client" {
       ServicesSliceDefaultPrimary,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      SingleReviewSlice,
+      SingleReviewSliceDefaultPrimary,
+      SingleReviewSliceVariation,
+      SingleReviewSliceDefault,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceReversePrimary,

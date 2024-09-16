@@ -29,8 +29,7 @@
             "options": [
               "gear",
               "cycle"
-            ],
-            "default_value": "gear"
+            ]
           }
         },
         "title": {
@@ -103,8 +102,7 @@
             "options": [
               "gear",
               "cycle"
-            ],
-            "default_value": "gear"
+            ]
           }
         },
         "title": {

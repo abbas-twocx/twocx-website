@@ -86,7 +86,7 @@ export default function AnimatedSection({
         </ButtonLink>
       )}
       {isFilled.image(slice?.primary?.image) && (
-        <div className="hero__image glass-container mt-16 opacity-0">
+        <div className="hero__image mt-16 opacity-0">
           <div className="hero__glow absolute inset-0 -z-10 bg-primary/10 opacity-0 blur-2xl filter" />
           <div className="max-h-[640px] h-[640px] max-w-full w-full">
             <PrismicNextImage

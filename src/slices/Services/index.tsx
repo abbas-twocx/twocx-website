@@ -49,11 +49,11 @@ const Services = async ({ slice }: ServicesProps): Promise<JSX.Element> => {
             return (
               <div
                 className={
-                  "glass-container group row-span-3 duration-300 ease-in-out cursor-pointer grid grid-rows-subgrid gap-4 rounded-lg bg-gradient-to-b from-gray-900 to-gray-950 p-4"
+                  "group row-span-3 relative duration-300 ease-in-out cursor-pointer grid grid-rows-subgrid gap-4 rounded-lg bg-gradient-to-b from-gray-900 to-dark-primary p-4"
                 }
                 key={index}
               >
-                <div className="group-hover:h-full h-0 translate-y-3 rounded-xl absolute -left-[10px] -right-[10px] bottom-0 bg-primary/10 duration-500 ease-in-out -z-20 blur-sm"></div>
+                <div className="group-hover:w-full h-[2px] w-0 rounded-xl absolute bottom-0 bg-primary/45 duration-700 ease-in-out"></div>
                 <h3 className="text-2xl">
                   <PrismicText field={item.data.title || ""} />
                 </h3>
@@ -61,7 +61,7 @@ const Services = async ({ slice }: ServicesProps): Promise<JSX.Element> => {
                   <PrismicRichText field={item.data.description} />
                 </div>
                 <Link
-                  className="inline-flex min-h-11 items-center before:absolute before:inset-0"
+                  className="group-hover:text-primary duration-300 ease-in-out inline-flex min-h-11 items-center before:absolute before:inset-0"
                   href={`/services/${item?.uid}` || "#"}
                 >
                   Learn More

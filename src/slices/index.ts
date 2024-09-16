@@ -4,10 +4,12 @@ import dynamic from "next/dynamic";
 
 export const components = {
   call_to_action: dynamic(() => import("./CallToAction")),
+  case_studies: dynamic(() => import("./CaseStudies")),
   hero: dynamic(() => import("./Hero")),
   masonry_cards: dynamic(() => import("./MasonryCards")),
   process: dynamic(() => import("./Process")),
   rich_text: dynamic(() => import("./RichText")),
   services: dynamic(() => import("./Services")),
+  single_review: dynamic(() => import("./SingleReview")),
   text_with_image: dynamic(() => import("./TextWithImage")),
 };

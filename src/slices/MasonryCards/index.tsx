@@ -40,7 +40,7 @@ const MasonryCards = ({ slice }: MasonryCardsProps): JSX.Element => {
       <div className="max-auto mt-6 max-w-md text-balance text-center text-slate-300">
         <PrismicRichText field={slice.primary.body} />
       </div>
-      <div className="mt-16 grid max-w-4xl grid-rows-[auto_auto_auto] gap-[36px] md:grid-cols-3 md:gap-[36px]">
+      <div className="mt-16 grid max-w-full w-full grid-rows-[auto_auto_auto] gap-[36px] md:grid-cols-3 md:gap-[36px]">
         {slice?.primary?.bento_card.map((item, index) => {
           return (
             <div
