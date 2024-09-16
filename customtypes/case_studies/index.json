@@ -51,6 +51,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "case_studies_carousel": {
+              "type": "SharedSlice"
+            },
             "single_review": {
               "type": "SharedSlice"
             },

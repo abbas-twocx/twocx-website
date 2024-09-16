@@ -20,13 +20,15 @@ const SingleReview = ({ slice }: SingleReviewProps): JSX.Element => {
       className="relative overflow-hidden"
     >
       <div className="relative flex flex-col justify-center items-center text-center">
-        {isFilled.image(slice.primary.image) && <div className="relative max-h-[80px] h-[80px] max-w-[80px] w-[80px]">
-          <PrismicNextImage
-            className="object-cover object-center rounded-full border-[2px] border-secondary border-solid max-h-[80px] h-[80px] max-w-[80px] w-[80px]"
-            fill
-            field={slice.primary.image}
-          />
-        </div>}
+        {isFilled.image(slice.primary.image) && (
+          <div className="relative max-h-[80px] h-[80px] max-w-[80px] w-[80px]">
+            <PrismicNextImage
+              className="object-cover object-center rounded-full border-[2px] border-secondary border-solid max-h-[80px] h-[80px] max-w-[80px] w-[80px]"
+              fill
+              field={slice.primary.image}
+            />
+          </div>
+        )}
         <h4 className="mx-auto max-w-2xl text-balance text-center text-[24px] leading-[120%] mt-[6px] font-medium md:text-[24px] text-white">
           {slice.primary.name}
         </h4>

@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type CaseStudiesDocumentDataSlicesSlice =
+  | CaseStudiesCarouselSlice
   | SingleReviewSlice
   | CaseStudiesSlice
   | MasonryCardsSlice
@@ -121,6 +122,7 @@ export type CaseStudiesDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CaseStudiesCarouselSlice
   | CaseStudiesSlice
   | ProcessSlice
   | ServicesSlice
@@ -537,6 +539,61 @@ type CaseStudiesSliceVariation = CaseStudiesSliceDefault;
 export type CaseStudiesSlice = prismic.SharedSlice<
   "case_studies",
   CaseStudiesSliceVariation
+>;
+
+/**
+ * Primary content in *CaseStudiesCarousel → Default → Primary*
+ */
+export interface CaseStudiesCarouselSliceDefaultPrimary {
+  /**
+   * Heading field in *CaseStudiesCarousel → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_carousel.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *CaseStudiesCarousel → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_carousel.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for CaseStudiesCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CaseStudiesCarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CaseStudiesCarouselSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CaseStudiesCarousel*
+ */
+type CaseStudiesCarouselSliceVariation = CaseStudiesCarouselSliceDefault;
+
+/**
+ * CaseStudiesCarousel Shared Slice
+ *
+ * - **API ID**: `case_studies_carousel`
+ * - **Description**: CaseStudiesCarousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CaseStudiesCarouselSlice = prismic.SharedSlice<
+  "case_studies_carousel",
+  CaseStudiesCarouselSliceVariation
 >;
 
 /**
@@ -1243,6 +1300,10 @@ declare module "@prismicio/client" {
       CaseStudiesSliceDefaultPrimary,
       CaseStudiesSliceVariation,
       CaseStudiesSliceDefault,
+      CaseStudiesCarouselSlice,
+      CaseStudiesCarouselSliceDefaultPrimary,
+      CaseStudiesCarouselSliceVariation,
+      CaseStudiesCarouselSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

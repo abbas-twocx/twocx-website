@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Machine"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris et eu nostrud est proident esse sit id tempor Lorem sit est reprehenderit proident veniam. Quis excepteur ad velit ipsum anim velit aute pariatur incididunt officia. Enim consectetur ipsum dolore eiusmod velit reprehenderit Lorem nulla occaecat cillum enim est non nostrud."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
