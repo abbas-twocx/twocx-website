@@ -54,13 +54,32 @@
           "label": "Address",
           "repeat": true,
           "fields": {
-            "address": {
-              "type": "StructuredText",
+            "heading": {
+              "type": "Text",
               "config": {
-                "label": "Address",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,hyperlink,strong,em"
+                "label": "Heading",
+                "placeholder": ""
+              }
+            },
+            "email": {
+              "type": "Text",
+              "config": {
+                "label": "email",
+                "placeholder": ""
+              }
+            },
+            "phone": {
+              "type": "Text",
+              "config": {
+                "label": "Phone",
+                "placeholder": ""
+              }
+            },
+            "location": {
+              "type": "Text",
+              "config": {
+                "label": "Location",
+                "placeholder": ""
               }
             }
           }

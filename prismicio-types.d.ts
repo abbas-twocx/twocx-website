@@ -151,14 +151,44 @@ export interface FooterDocumentDataLinksItem {
  */
 export interface FooterDocumentDataAddressItem {
   /**
-   * Address field in *Footer → Address*
+   * Heading field in *Footer → Address*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.address[].address
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: footer.address[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  address: prismic.RichTextField;
+  heading: prismic.KeyTextField;
+
+  /**
+   * email field in *Footer → Address*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address[].email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Phone field in *Footer → Address*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address[].phone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone: prismic.KeyTextField;
+
+  /**
+   * Location field in *Footer → Address*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address[].location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location: prismic.KeyTextField;
 }
 
 /**
@@ -503,6 +533,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+
+  /**
+   * Robots field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.robots
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  robots: prismic.RichTextField;
 }
 
 /**

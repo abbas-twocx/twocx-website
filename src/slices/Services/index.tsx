@@ -31,7 +31,7 @@ const Services = async ({ slice }: ServicesProps): Promise<JSX.Element> => {
         field={slice.primary.heading}
         components={{
           heading3: ({ children }) => (
-            <h3 className="text-balance text-center text-[42px] font-medium md:text-7xl">
+            <h3 className="text-balance text-center text-[42px] leading-[120%] font-medium md:text-7xl">
               {children}
             </h3>
           ),

@@ -2,10 +2,7 @@ import Bounded from "@/components/Bounded";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import {
-  PrismicText,
-  SliceComponentProps,
-} from "@prismicio/react";
+import { PrismicText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 
 /**
@@ -45,7 +42,7 @@ const MasonryCards = ({ slice }: MasonryCardsProps): JSX.Element => {
           return (
             <div
               className={clsx(
-                "glass-container group row-span-3 duration-300 ease-in-out cursor-pointer grid grid-rows-subgrid gap-4 rounded-lg bg-gradient-to-b from-gray-900 to-gray-950 p-4",
+                "lg:glass-container group row-span-3 duration-300 ease-in-out cursor-pointer grid grid-rows-subgrid gap-4 rounded-lg bg-gradient-to-b from-gray-900 to-gray-950 p-4",
                 item?.wide ? "md:col-span-2" : "md:col-span-1"
               )}
               key={index}
@@ -57,11 +54,11 @@ const MasonryCards = ({ slice }: MasonryCardsProps): JSX.Element => {
               <div className="max-w-md text-balance text-slate-300">
                 <PrismicRichText field={item.body} />
               </div>
-              <div className="max-w-full w-full max-h-[144px] h-[144px] relative">
+              <div className="max-w-full w-full max-h-[240px] h-[240px] relative">
                 <PrismicNextImage
                   field={item.image}
                   fill
-                  className="max-h-[144px] w-full object-cover object-center rounded-[6px]"
+                  className="max-h-[240px] w-full object-cover object-center rounded-[6px]"
                 />
               </div>
             </div>

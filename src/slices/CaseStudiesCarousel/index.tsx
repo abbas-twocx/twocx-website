@@ -29,7 +29,7 @@ const CaseStudiesCarousel = async ({
         field={slice.primary.heading}
         components={{
           heading2: ({ children }) => (
-            <h2 className="text-balance text-center text-5xl font-medium md:text-7xl">
+            <h2 className="text-balance text-center text-[38px] leading-[120%] font-medium md:text-7xl">
               {children}
             </h2>
           ),
@@ -40,7 +40,7 @@ const CaseStudiesCarousel = async ({
           ),
         }}
       />
-      <div className="max-auto mt-6 max-w-md text-balance text-center text-slate-300">
+      <div className="max-auto mt-6 lg:max-w-md max-w-full text-balance text-center text-slate-300">
         <PrismicRichText field={slice.primary.body} />
       </div>
       <div className="mt-16 max-w-full w-full">

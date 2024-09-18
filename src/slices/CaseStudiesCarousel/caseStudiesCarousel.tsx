@@ -66,9 +66,9 @@ const CaseStudiesCarouselClient = ({
                 <PrismicRichText field={item.data.description} />
               </div>
             </div>
-            <div className="rounded-lg shadow-2xl lg:col-span-2 lg:pt-0 max-w-[724px] w-full max-h-[390px] h-[390px] relative">
+            <div className="rounded-lg shadow-2xl lg:col-span-2 lg:pt-0 lg:max-w-[724px] max-w-full w-full lg:max-h-[390px] max-h-[290px] h-[290px] lg:h-[390px] relative">
               <PrismicNextImage
-                className="object-cover object-center rounded-lg max-h-[390px] h-[390px]"
+                className="object-cover object-center rounded-lg lg:max-h-[390px] max-h-[290px] h-[290px] lg:h-[390px]"
                 fill
                 field={item.data.bannner}
               />

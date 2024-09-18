@@ -34,30 +34,30 @@ export default function AnimatedSection({
       tl.fromTo(
         ".hero__heading",
         { scale: 0.5 },
-        { scale: 1, opacity: 1, duration: 1.4 }
+        { scale: 1, opacity: 1, duration: 0.8 }
       );
       tl.fromTo(
         ".hero__body",
         { y: 20 },
-        { y: 0, opacity: 1, duration: 1.2 },
+        { y: 0, opacity: 1, duration: 0.5 },
         "-=0.6"
       );
       tl.fromTo(
         ".hero__button",
         { scale: 0.5 },
-        { scale: 1, opacity: 1, duration: 1.3 },
+        { scale: 1, opacity: 1, duration: 0.5 },
         "-=0.8"
       );
       tl.fromTo(
         ".hero__image",
         { y: 100 },
-        { y: 0, opacity: 1, duration: 1.3 },
+        { y: 0, opacity: 1, duration: 0.5 },
         "+=0.3"
       );
       tl.fromTo(
         ".hero__glow",
         { scale: 0.5 },
-        { scale: 1, opacity: 1, duration: 1.8 },
+        { scale: 1, opacity: 1, duration: 0.8 },
         "-=1"
       );
     },
@@ -88,7 +88,7 @@ export default function AnimatedSection({
       {isFilled.image(slice?.primary?.image) && (
         <div className="hero__image mt-16 opacity-0">
           <div className="hero__glow absolute inset-0 -z-10 bg-primary/10 opacity-0 blur-2xl filter" />
-          <div className="max-h-[640px] h-[640px] max-w-full w-full">
+          <div className="lg:max-h-[640px] max-h-[280px] h-[280px] lg:h-[640px] max-w-full w-full">
             <PrismicNextImage
               className="rounded-lg object-cover object-center"
               fill

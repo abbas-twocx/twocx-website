@@ -69,6 +69,15 @@
             }
           }
         }
+      },
+      "robots": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Robots",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
       }
     }
   }

@@ -26,20 +26,20 @@ export default function AnimatedSection({
 
       const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
-      tl.fromTo(".heading", { y: 20 }, { y: 0, opacity: 1, duration: 1.4 });
+      tl.fromTo(".heading", { y: 20 }, { y: 0, opacity: 1, duration: 0.8 });
 
-      tl.fromTo(".logo", { y: 20 }, { y: 0, opacity: 1, duration: 1.4 });
+      tl.fromTo(".logo", { y: 20 }, { y: 0, opacity: 1, duration: 0.5 });
 
       tl.fromTo(
         ".body",
         { y: 20 },
-        { y: 0, opacity: 1, duration: 1.2 },
+        { y: 0, opacity: 1, duration: 0.5 },
         "-=0.6"
       );
       tl.fromTo(
         ".glow",
         { y: 20 },
-        { y: 0, opacity: 0.1, duration: 1.2 },
+        { y: 0, opacity: 0.1, duration: 0.8 },
         "-=0.6"
       );
     },
@@ -53,7 +53,7 @@ export default function AnimatedSection({
     >
       <div className="glow opacity-0 absolute left-0 top-0 bottom-0 w-[200px] h-[200px] bg-primary rounded-full blur-3xl" />
       <div className="glow opacity-0 absolute right-0 top-0 bottom-0 w-[200px] h-[200px] bg-secondary rounded-full blur-3xl" />
-      <h1 className="heading opacity-0 text-7xl font-medium text-balance">
+      <h1 className="heading opacity-0 lg:text-7xl text-[38px] leading-[120%] font-medium text-balance">
         <p className="text-2xl text-primary">Clients</p>
         <PrismicText field={page?.data?.heading} />
       </h1>

@@ -1,9 +1,6 @@
 "use client";
 
-import ButtonLink from "@/components/ButtonLink";
-import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, PrismicText } from "@prismicio/react";
+import { PrismicText } from "@prismicio/react";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import { ServicesDocument } from "../../../../prismicio-types";
 import { useRef } from "react";
@@ -27,19 +24,19 @@ export default function AnimatedSection({ page }: { page: ServicesDocument }) {
       tl.fromTo(
         ".heading",
         { scale: 0.5 },
-        { scale: 1, opacity: 1, duration: 1.4 }
+        { scale: 1, opacity: 1, duration: 0.8 }
       );
 
       tl.fromTo(
         ".body",
         { y: 20 },
-        { y: 0, opacity: 1, duration: 1.2 },
+        { y: 0, opacity: 1, duration: 0.5 },
         "-=0.6"
       );
       tl.fromTo(
         ".glow",
         { y: 20 },
-        { y: 0, opacity: 0.1, duration: 1.2 },
+        { y: 0, opacity: 0.1, duration: 0.5 },
         "-=0.6"
       );
     },
@@ -53,7 +50,7 @@ export default function AnimatedSection({ page }: { page: ServicesDocument }) {
     >
       <div className="glow opacity-0 absolute left-0 top-0 bottom-0 w-[200px] h-[200px] bg-primary rounded-full blur-3xl" />
       <div className="glow opacity-0 absolute right-0 top-0 bottom-0 w-[200px] h-[200px] bg-secondary rounded-full blur-3xl" />
-      <h1 className="heading opacity-0 text-7xl font-medium text-balance">
+      <h1 className="heading opacity-0 lg:text-7xl text-[38px] leading-[120%] font-medium text-balance">
         <p className="text-lg text-primary">Service</p>
         <PrismicText field={page?.data?.title} />
       </h1>

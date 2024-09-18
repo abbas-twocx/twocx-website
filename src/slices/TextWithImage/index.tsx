@@ -38,7 +38,7 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
             field={slice.primary.heading}
             components={{
               heading2: ({ children }) => (
-                <h2 className="text-balance text-center text-5xl font-medium md:text-7xl mb-16">
+                <h2 className="text-balance text-center text-[38px] leading-[120%] font-medium md:text-7xl mb-16">
                   {children}
                 </h2>
               ),
@@ -46,7 +46,7 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
           />
         </AnimatedContent>
       )}
-      <div className="w-full grid items-center gap-8 rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12">
+      <div className="w-full grid items-center gap-8 rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 lg:px-8 px-[22px] py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12">
         <div>
           {slice?.primary?.icon && (
             <div className="w-fit rounded-lg bg-blue-500/35 p-4 text-3xl">
@@ -59,13 +59,15 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
           <div className="prose prose-invert mt-4 max-w-xl">
             <PrismicRichText field={slice.primary.body} />
           </div>
-          {isFilled.link(slice.primary.button_link)&&<ButtonLink className="mt-6" field={slice.primary.button_link}>
-            {slice.primary.button_text || "Learn More"}
-          </ButtonLink>}
+          {isFilled.link(slice.primary.button_link) && (
+            <ButtonLink className="mt-6" field={slice.primary.button_link}>
+              {slice.primary.button_text || "Learn More"}
+            </ButtonLink>
+          )}
         </div>
         <div
           className={clsx(
-            "rounded-lg shadow-2xl lg:col-span-2 lg:pt-0 max-w-[724px] w-full max-h-[390px] h-[390px] relative",
+            "rounded-lg shadow-2xl lg:col-span-2 lg:pt-0 max-w-[724px] w-full lg:max-h-[390px] max-h-[240px] h-[240px] lg:h-[390px] relative",
             slice?.variation === "reverse"
               ? "lg:order-1 lg:translate-x-[6vw]"
               : "lg:-order-1 lg:translate-x-[-6vw]"

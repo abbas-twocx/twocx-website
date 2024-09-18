@@ -27,18 +27,22 @@ export default function AnimatedContent({
           {
             y: 0,
             ease: "power2.inOut",
-            duration: 1,
+            duration: 0.5,
             scrollTrigger: {
               trigger: container.current,
               start: "top bottom-=20%",
               toggleActions: "play pause resume reverse",
             },
-          },
+          }
         );
       }
     },
-    { scope: container },
+    { scope: container }
   );
 
-  return <div ref={container}>{children}</div>;
+  return (
+    <div ref={container}>
+      {children}
+    </div>
+  );
 }

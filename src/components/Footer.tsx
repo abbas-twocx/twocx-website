@@ -4,7 +4,6 @@ import { PrismicText } from "@prismicio/react";
 import Image from "next/image";
 import Link from "next/link";
 import Bounded from "./Bounded";
-import { PrismicRichText } from "./PrismicRichText";
 
 export default async function Footer() {
   const client = createClient();
@@ -12,12 +11,11 @@ export default async function Footer() {
   const footer = await client.getSingle("footer");
   const footerLinks = footer.data.links;
   const footerAddresses = footer.data.address;
-  const combinedLinks = [...footerLinks, ...footerAddresses];
 
   return (
     <Bounded as="footer">
-      <div className="flex flex-col w-full border-t border-slate-600 py-8 lg:flex-row lg:justify-between">
-        <div className="flex flex-col gap-6 items-start max-w-[420px] lg:w-1/4 lg:mr-12">
+      <div className="flex gap-[32px] flex-col w-full border-t border-slate-600 py-8 lg:flex-row lg:justify-between">
+        <div className="flex flex-col gap-6 items-start max-w-[460px] lg:w-2/4 lg:mr-12">
           <Link href={"/"}>
             <Image
               className="invert"
@@ -31,7 +29,7 @@ export default async function Footer() {
           <PrismicText field={footer.data.body} />
         </div>
 
-        <div className="flex flex-col gap-6 lg:w-3/4 lg:flex-row lg:gap-12 lg:justify-between">
+        <div className="flex flex-col gap-6 lg:w-2/4 lg:flex-row lg:gap-6 lg:justify-end">
           <div className="flex flex-col gap-4 lg:w-1/3">
             <nav aria-label="Footer Navigation">
               <ul className="flex flex-col gap-3">
@@ -49,7 +47,6 @@ export default async function Footer() {
             </nav>
           </div>
 
-          {/* Footer Links */}
           <div className="flex flex-col gap-4 lg:w-1/3">
             <nav aria-label="Footer Links">
               <ul className="flex flex-col gap-3">
@@ -66,21 +63,38 @@ export default async function Footer() {
               </ul>
             </nav>
           </div>
-
-          {/* Footer Addresses */}
-          <div className="flex flex-col gap-4 lg:w-1/3">
-            <address className="flex flex-col gap-3 text-slate-300">
-              {footerAddresses.map((item, index) => (
-                <div key={index}>
-                  <PrismicRichText field={item.address} />
-                </div>
-              ))}
-            </address>
-          </div>
         </div>
       </div>
-      {/* Copyright Text */}
-      <div className="mt-8 text-center text-slate-400 lg:text-left">
+      <address className="flex flex-col gap-6 justify-around text-slate-300 lg:flex-row flex-wrap w-full">
+        {footerAddresses.map((item, index) => {
+          const sanitizedPhone = item.phone
+            ? item.phone.replace(/[^\d+]/g, "")
+            : "";
+
+          return (
+            <div
+              key={index}
+              className="max-w-[320px] flex flex-col gap-[6px] text-balance"
+            >
+              <h6 className="text-white">{item.heading}</h6>
+              <Link
+                className="hover:text-primary duration-500 ease-in-out"
+                href={`mailto:${item.email}`}
+              >
+                {item.email}
+              </Link>
+              <Link
+                className="hover:text-primary duration-500 ease-in-out"
+                href={`tel:${sanitizedPhone}`}
+              >
+                {item.phone}
+              </Link>
+              <p>{item.location}</p>
+            </div>
+          );
+        })}
+      </address>
+      <div className="mt-8 text-center text-slate-400 lg:text-left border-t border-primary/10 w-full justify-center items-center py-3">
         <PrismicText field={footer.data.copyright_text} />
       </div>
     </Bounded>

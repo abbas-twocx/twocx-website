@@ -67,7 +67,7 @@ const defaultComponents: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="mb-7 last:mb-0 text-b16 font-normal leading-relaxed text-white lg:text-b18 xl:text-b18">
+    <p className="mb-[12px] last:mb-0 text-b16 font-normal leading-relaxed text-white lg:text-b18 xl:text-b18">
       {children}
     </p>
   ),
@@ -98,7 +98,7 @@ const defaultComponents: JSXMapSerializer = {
   hyperlink: ({ children, node }) => (
     <PrismicNextLink
       field={node.data}
-      className="underline decoration-1 underline-offset-2 ease-in-out duration-300 hover:text-primary text-[18px] m-0"
+      className="no-underline decoration-1 underline-offset-2 ease-in-out duration-300 hover:text-primary text-[18px] m-0"
     >
       {children}
     </PrismicNextLink>

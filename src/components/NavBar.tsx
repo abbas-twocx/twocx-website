@@ -62,7 +62,7 @@ export default function NavBar({ settings }: NavBarProps) {
             <span className="sr-only">Close Menu</span>
           </button>
 
-          <div className="grid justify-items-end gap-8">
+          <div className="grid justify-items-end gap-[24px] mt-[36px]">
             {settings?.data?.navigation.map((item) => {
               if (item?.cta_button) {
                 return (
@@ -85,13 +85,15 @@ export default function NavBar({ settings }: NavBarProps) {
                   onClick={() => setOpen(false)}
                   key={item?.label}
                   field={item?.link}
-                  className="first:md-8 block px-3 text-3xl"
+                  className="first:md-8 block px-3 text-2xl hover:text-primary duration-300 ease-in-out"
                   aria-current={
                     pathname.includes(asLink(item?.link) as string)
                       ? "page"
                       : undefined
                   }
-                />
+                >
+                  {item?.label}
+                </PrismicNextLink>
               );
             })}
           </div>
