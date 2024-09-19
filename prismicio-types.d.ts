@@ -4,6 +4,21 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Case Studies → Services*
+ */
+export interface CaseStudiesDocumentDataServicesItem {
+  /**
+   * Service field in *Case Studies → Services*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.services[].service
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  service: prismic.ContentRelationshipField<"services">;
+}
+
 type CaseStudiesDocumentDataSlicesSlice =
   | CaseStudiesCarouselSlice
   | SingleReviewSlice
@@ -61,6 +76,17 @@ interface CaseStudiesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   bannner: prismic.ImageField<never>;
+
+  /**
+   * Services field in *Case Studies*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies.services[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  services: prismic.GroupField<Simplify<CaseStudiesDocumentDataServicesItem>>;
 
   /**
    * Slice Zone field in *Case Studies*
@@ -1439,6 +1465,7 @@ declare module "@prismicio/client" {
     export type {
       CaseStudiesDocument,
       CaseStudiesDocumentData,
+      CaseStudiesDocumentDataServicesItem,
       CaseStudiesDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,

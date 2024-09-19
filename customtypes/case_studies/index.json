@@ -46,6 +46,23 @@
           "thumbnails": []
         }
       },
+      "services": {
+        "type": "Group",
+        "config": {
+          "label": "Services",
+          "repeat": true,
+          "fields": {
+            "service": {
+              "type": "Link",
+              "config": {
+                "label": "Service",
+                "select": "document",
+                "customtypes": ["services"]
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

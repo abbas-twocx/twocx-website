@@ -8,6 +8,19 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 
+interface Service {
+  id: string;
+  type: string;
+  tags: string[];
+  lang: string;
+  slug: string;
+  first_publication_date: string;
+  last_publication_date: string;
+  uid: string;
+  link_type: string;
+  isBroken: boolean;
+}
+
 export default function AnimatedSection({
   page,
 }: {
@@ -68,14 +81,15 @@ export default function AnimatedSection({
       <p className="body md-4 text-slat-300 mt-[24px] max-w-2xl text-lg text-balance opacity-0">
         <PrismicText field={page?.data?.description} />
       </p>
+      <div className="flex flex-col lg:flex-row gap-[24px] w-full">
       {page.tags.length > 0 && (
-        <div className="flex flex-col gap-[24px] mt-[32px]">
-          <span className="text-primary text-2xl">Technologies Used</span>
-          <div className="w-full flex items-center gap-[12px] flex-wrap">
+        <div className="flex flex-col gap-[24px] mt-[32px] rounded-xl p-[12px] border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 backdrop-blur-sm">
+          <span className="text-primary text-[18px]">Technologies Used</span>
+          <div className="w-full flex items-center gap-[12px] flex-wrap justify-center lg:justify-start">
             {page.tags.map((tag, index) => (
               <div
                 key={index}
-                className="cursor-pointer focus:ring-offset-3 relative inline-flex h-fit w-fit rounded-full border border-green-100/20 bg-green-200/10 px-4 py-2 text-green-200 outline-none ring-secondary transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-secondary after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-secondary/40 hover:text-secondary after:hover:bg-opacity-15 focus:ring-2"
+                className="cursor-pointer text-[14px] focus:ring-offset-3 relative inline-flex h-fit w-fit rounded-full border border-green-100/20 bg-green-200/10 px-[8px] py-[4px] text-green-200 outline-none ring-secondary transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-secondary after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-secondary/40 hover:text-secondary after:hover:bg-opacity-15 focus:ring-2"
               >
                 <p>{tag}</p>
               </div>
@@ -83,6 +97,33 @@ export default function AnimatedSection({
           </div>
         </div>
       )}
+
+      {page.data.services.length > 0 && (
+        <div className="flex flex-col gap-[24px] mt-[32px] w-full rounded-xl backdrop-blur-sm p-[12px] border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5">
+          <span className="text-primary text-[18px]">Services Used</span>
+          <div className="w-full flex items-center gap-[12px] flex-wrap justify-center lg:justify-start ">
+            {page.data.services.map((item, index) => {
+              const service = item.service as Service;
+              const capitalizWords = (str: string) => {
+                return str
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')
+              }
+
+              return (
+                <div
+                  key={index}
+                  className="cursor-pointer text-[14px] focus:ring-offset-3 relative inline-flex h-fit w-fit rounded-full border border-green-100/20 bg-green-200/10 px-[8px] py-[4px] text-green-200 outline-none ring-secondary transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-secondary after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-secondary/40 hover:text-secondary after:hover:bg-opacity-15 focus:ring-2"
+                >
+                  <p>{capitalizWords(service.uid)}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      </div>
     </div>
   );
 }
