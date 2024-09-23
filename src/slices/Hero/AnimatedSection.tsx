@@ -68,7 +68,7 @@ export default function AnimatedSection({
     <div ref={container} className="relative">
       {/* <StarGrid /> */}
       {isFilled.richText(slice?.primary?.heading) && (
-        <h1 className="hero__heading text-balance text-5xl font-medium opacity-0 md:text-7xl">
+        <h1 className="hero__heading text-balance text-h1-m font-medium opacity-0 md:text-h1">
           <PrismicText field={slice?.primary?.heading} />
         </h1>
       )}

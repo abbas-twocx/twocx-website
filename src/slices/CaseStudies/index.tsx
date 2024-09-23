@@ -27,7 +27,7 @@ const CaseStudies = async ({
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <h2 className="max-w-2xl text-balance text-center text-5xl font-medium md:text-7xl">
+      <h2 className="max-w-2xl text-balance text-center text-h1-m font-medium md:text-h1">
         <PrismicText field={slice?.primary?.heading} />
       </h2>
       <div className="max-auto mt-6 max-w-md text-balance text-center text-slate-300">

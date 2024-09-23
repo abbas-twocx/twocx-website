@@ -23,7 +23,7 @@ const Process = ({ slice }: ProcessProps): JSX.Element => {
       className="relative overflow-hidden"
     >
       <div className="relative">
-        <h2 className="mx-auto max-w-2xl text-balance text-center text-5xl font-medium md:text-7xl">
+        <h2 className="mx-auto max-w-2xl text-balance text-center text-h1-m font-medium md:text-h1">
           <PrismicText field={slice.primary.heading} />
         </h2>
         <div className="mx-auto mt-6 max-w-md text-balance text-center text-slate-300">

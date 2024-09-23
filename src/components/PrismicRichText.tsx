@@ -16,7 +16,7 @@ const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => (
     <Heading
       as="h1"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 line-clamp-4 text-h1M font-bold leading-tight text-darkHeading md:text-h1 lg:text-h1 xl:text-h1"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 line-clamp-4 text-h1-m font-bold leading-tight text-darkHeading md:text-h1 lg:text-h1 xl:text-h1"
     >
       {children}
     </Heading>
@@ -25,7 +25,7 @@ const defaultComponents: JSXMapSerializer = {
     <Heading
       as="h2"
       size="md"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 text-h2 leading-9 font-semibold text-darkHeading"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 lg:text-h2 text-h2-m leading-9 font-semibold text-darkHeading"
     >
       {children}
     </Heading>
@@ -34,7 +34,7 @@ const defaultComponents: JSXMapSerializer = {
     <Heading
       as="h3"
       size="sm"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold text-h3 leading-9 text-darkHeading"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold lg:text-h3 text-h3-m leading-9 text-darkHeading"
     >
       {children}
     </Heading>
@@ -43,7 +43,7 @@ const defaultComponents: JSXMapSerializer = {
     <Heading
       as="h4"
       size="sm"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold text-h4 leading-9 text-darkHeading"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold lg:text-h4 text-h4-m leading-9 text-darkHeading"
     >
       {children}
     </Heading>
@@ -52,7 +52,7 @@ const defaultComponents: JSXMapSerializer = {
     <Heading
       as="h4"
       size="sm"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold text-h5 leading-9 text-darkHeading"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold lg:text-h5 text-h5-m leading-9 text-darkHeading"
     >
       {children}
     </Heading>
@@ -61,18 +61,18 @@ const defaultComponents: JSXMapSerializer = {
     <Heading
       as="h4"
       size="sm"
-      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold text-h6 leading-9 text-darkHeading"
+      className="mb-7 mt-12 first:mt-0 last:mb-0 font-semibold lg:text-h6 text-h6-m leading-9 text-darkHeading"
     >
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="mb-[12px] last:mb-0 text-b16 font-normal leading-relaxed text-white lg:text-b18 xl:text-b18">
+    <p className="mb-[12px] last:mb-0 text-b16 font-normal leading-relaxed text-white lg:text-b16 xl:text-b16">
       {children}
     </p>
   ),
   oList: ({ children }) => (
-    <ol className="mb-7 pl-4 last:mb-0 md:pl-6 text-white text-b16 lg:text-b18">
+    <ol className="mb-7 pl-4 last:mb-0 md:pl-6 text-white text-b16 lg:text-b16">
       {children}
     </ol>
   ),
@@ -98,7 +98,7 @@ const defaultComponents: JSXMapSerializer = {
   hyperlink: ({ children, node }) => (
     <PrismicNextLink
       field={node.data}
-      className="no-underline decoration-1 underline-offset-2 ease-in-out duration-300 hover:text-primary text-[18px] m-0"
+      className="no-underline decoration-1 underline-offset-2 ease-in-out duration-300 hover:text-primary text-b16 m-0"
     >
       {children}
     </PrismicNextLink>

@@ -52,7 +52,7 @@ const CaseStudiesCarouselClient = ({
         caseStudies.map((item, index) => (
           <div
             key={index}
-            className="w-full grid items-center gap-8 rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12"
+            className="w-full grid items-center gap-8 rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-[32px] lg:py-12"
           >
             <PrismicNextLink
               className="absolute no-underline inset-0 w-full h-full z-10 hover:text-primary duration-500 ease-in-out mt-8"

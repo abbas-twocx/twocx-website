@@ -29,7 +29,7 @@ const CaseStudiesCarousel = async ({
         field={slice.primary.heading}
         components={{
           heading2: ({ children }) => (
-            <h2 className="text-balance text-center text-[38px] leading-[120%] font-medium md:text-7xl">
+            <h2 className="text-balance text-center text-h2-m leading-[120%] font-medium md:text-h2">
               {children}
             </h2>
           ),

@@ -12,6 +12,30 @@ h6 {
     font-family: var(--font-dm-serif-display);
 }
 
+h1 {
+    @apply lg:text-h1 text-h1-m
+}
+
+h2 {
+    @apply lg:text-h2 text-h2-m
+}
+
+h3 {
+    @apply lg:text-h3 text-h3-m
+}
+
+h4 {
+    @apply lg:text-h4 text-h4-m
+}
+
+h5 {
+    @apply lg:text-h5 text-h5-m
+}
+
+h6 {
+    @apply lg:text-h6 text-h6-m
+}
+
 body,
 p,
 span,

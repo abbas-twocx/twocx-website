@@ -78,23 +78,23 @@ export default async function Footer() {
             >
               <h6 className="text-white">{item.heading}</h6>
               <Link
-                className="hover:text-primary duration-500 ease-in-out"
+                className="hover:text-primary duration-500 ease-in-out text-b16"
                 href={`mailto:${item.email}`}
               >
                 {item.email}
               </Link>
               <Link
-                className="hover:text-primary duration-500 ease-in-out"
+                className="hover:text-primary duration-500 ease-in-out text-b16"
                 href={`tel:${sanitizedPhone}`}
               >
                 {item.phone}
               </Link>
-              <p>{item.location}</p>
+              <p className="text-b16">{item.location}</p>
             </div>
           );
         })}
       </address>
-      <div className="mt-8 text-center text-slate-400 lg:text-left border-t border-primary/10 w-full justify-center items-center py-3">
+      <div className="mt-8 text-b14 text-center text-slate-400 lg:text-left border-t border-primary/10 w-full justify-center items-center py-3">
         <PrismicText field={footer.data.copyright_text} />
       </div>
     </Bounded>

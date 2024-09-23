@@ -38,7 +38,7 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
             field={slice.primary.heading}
             components={{
               heading2: ({ children }) => (
-                <h2 className="text-balance text-center text-[38px] leading-[120%] font-medium md:text-7xl mb-16">
+                <h2 className="text-balance text-center text-h2-m leading-[120%] font-medium md:text-h2 mb-16">
                   {children}
                 </h2>
               ),

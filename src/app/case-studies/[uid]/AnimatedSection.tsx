@@ -66,7 +66,7 @@ export default function AnimatedSection({
     >
       <div className="glow opacity-0 absolute left-0 top-0 bottom-0 w-[200px] h-[200px] bg-primary rounded-full blur-3xl" />
       <div className="glow opacity-0 absolute right-0 top-0 bottom-0 w-[200px] h-[200px] bg-secondary rounded-full blur-3xl" />
-      <h1 className="heading opacity-0 lg:text-7xl text-[38px] leading-[120%] font-medium text-balance">
+      <h1 className="heading opacity-0 lg:text-h1 text-h1-m leading-[120%] font-medium text-balance">
         <p className="text-2xl text-primary">Clients</p>
         <PrismicText field={page?.data?.heading} />
       </h1>

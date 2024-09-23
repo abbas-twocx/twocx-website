@@ -23,7 +23,7 @@ const MasonryCards = ({ slice }: MasonryCardsProps): JSX.Element => {
         field={slice.primary.heading}
         components={{
           heading2: ({ children }) => (
-            <h2 className="text-balance text-center text-5xl font-medium md:text-7xl">
+            <h2 className="text-balance text-center text-h1-m font-medium md:text-h1">
               {children}
             </h2>
           ),
