@@ -12,5 +12,6 @@ export const components = {
   rich_text: dynamic(() => import("./RichText")),
   services: dynamic(() => import("./Services")),
   single_review: dynamic(() => import("./SingleReview")),
+  technologies: dynamic(() => import("./Technologies")),
   text_with_image: dynamic(() => import("./TextWithImage")),
 };

@@ -24,7 +24,6 @@ const defaultComponents: JSXMapSerializer = {
   heading2: ({ children }) => (
     <Heading
       as="h2"
-      size="md"
       className="mb-7 mt-12 first:mt-0 last:mb-0 lg:text-h2 text-h2-m leading-9 font-semibold text-darkHeading"
     >
       {children}

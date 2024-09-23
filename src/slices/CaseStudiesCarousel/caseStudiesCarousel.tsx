@@ -5,7 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { CaseStudiesDocument } from "../../../prismicio-types";
-import { CSSProperties } from "react";
+import * as prismic from "@prismicio/client";
 
 // Dynamically load the carousel only on the client
 const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
@@ -58,9 +58,9 @@ const CaseStudiesCarouselClient = ({
               className="absolute no-underline inset-0 w-full h-full z-10 hover:text-primary duration-500 ease-in-out mt-8"
               href={`/case-studies/${item.uid}`}
             ></PrismicNextLink>
-            <div className="flex flex-col">
-              <h3 className="text-2xl">
-                <PrismicRichText field={item.data.heading} />
+            <div className="flex flex-col text-start">
+              <h3 className="text-balance leading-[120%] text-h3-m lg:text-h3 font-medium">
+                {prismic.asText(item.data.heading)}
               </h3>
               <div className="prose prose-invert mt-4 max-w-xl text-balance">
                 <PrismicRichText field={item.data.description} />

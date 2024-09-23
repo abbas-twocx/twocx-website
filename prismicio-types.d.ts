@@ -294,6 +294,7 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TechnologiesSlice
   | CaseStudiesCarouselSlice
   | CaseStudiesSlice
   | ProcessSlice
@@ -375,6 +376,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicesDocumentDataSlicesSlice =
+  | TechnologiesSlice
   | ProcessSlice
   | CallToActionSlice
   | TextWithImageSlice
@@ -1259,6 +1261,86 @@ export type SingleReviewSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Technologies → Default → Primary → Icons*
+ */
+export interface TechnologiesSliceDefaultPrimaryIconsItem {
+  /**
+   * Icon field in *Technologies → Default → Primary → Icons*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: technologies.default.primary.icons[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Technologies → Default → Primary*
+ */
+export interface TechnologiesSliceDefaultPrimary {
+  /**
+   * Heading field in *Technologies → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: technologies.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * body field in *Technologies → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: technologies.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Icons field in *Technologies → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: technologies.default.primary.icons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  icons: prismic.GroupField<Simplify<TechnologiesSliceDefaultPrimaryIconsItem>>;
+}
+
+/**
+ * Default variation for Technologies Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TechnologiesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TechnologiesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Technologies*
+ */
+type TechnologiesSliceVariation = TechnologiesSliceDefault;
+
+/**
+ * Technologies Shared Slice
+ *
+ * - **API ID**: `technologies`
+ * - **Description**: Technologies
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TechnologiesSlice = prismic.SharedSlice<
+  "technologies",
+  TechnologiesSliceVariation
+>;
+
+/**
  * Primary content in *TextWithImage → Default → Primary*
  */
 export interface TextWithImageSliceDefaultPrimary {
@@ -1521,6 +1603,11 @@ declare module "@prismicio/client" {
       SingleReviewSliceDefaultPrimary,
       SingleReviewSliceVariation,
       SingleReviewSliceDefault,
+      TechnologiesSlice,
+      TechnologiesSliceDefaultPrimaryIconsItem,
+      TechnologiesSliceDefaultPrimary,
+      TechnologiesSliceVariation,
+      TechnologiesSliceDefault,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceReversePrimary,

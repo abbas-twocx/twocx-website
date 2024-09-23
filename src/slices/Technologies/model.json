@@ -1,8 +1,8 @@
 {
-  "id": "case_studies_carousel",
+  "id": "technologies",
   "type": "SharedSlice",
-  "name": "CaseStudiesCarousel",
-  "description": "CaseStudiesCarousel",
+  "name": "Technologies",
+  "description": "Technologies",
   "variations": [
     {
       "id": "default",
@@ -18,16 +18,33 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "em,heading2"
+            "multi": "heading2,em"
           }
         },
         "body": {
           "type": "StructuredText",
           "config": {
-            "label": "Body",
+            "label": "body",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph"
+          }
+        },
+        "icons": {
+          "type": "Group",
+          "config": {
+            "label": "Icons",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
           }
         }
       },
